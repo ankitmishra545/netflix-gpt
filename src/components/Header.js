@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NETFLIX_LOGO, USER_ICON } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
-import { removeUser } from "../utils/userSlice";
-import { signOut } from "firebase/auth";
+import { addUser, removeUser } from "../utils/userSlice";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useEffect } from "react";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -21,6 +22,29 @@ const Header = () => {
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+
+        const { displayName, email } = user;
+        dispatch(addUser({ name: displayName, email }));
+        navigate("/browse");
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        navigate("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    }; // unsubscribing when components unmount
+  }, []);
+
   return (
     <div className="absolute bg-gradient-to-b from-black z-10 px-8 py-2 w-full">
       <div className="flex justify-between items-center">

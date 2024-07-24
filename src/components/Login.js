@@ -63,7 +63,6 @@ const Login = () => {
               // ...
             });
           // Signed up
-          const user = userCredential.user;
           // ...
         })
         .catch((error) => {
@@ -91,11 +90,11 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={LOGIN_PAGE_BACKGROUND} alt="Login-page-background-image" />
+        <img src={LOGIN_PAGE_BACKGROUND} alt="Login-page-background-image" className="h-screen object-cover w-screen" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute bg-black mx-auto my-36 p-12 text-white bg-opacity-80 w-3/12 right-0 left-0 rounded-md "
+        className="absolute bg-black mx-auto my-36 p-12 text-white bg-opacity-80 min-w-[300px] max-w-[400px] right-0 left-0 rounded-md "
       >
         <h1 className="font-bold text-3xl py-4">Sign {isSignUp ? "Up" : "In"}</h1>
         {isSignUp && (
