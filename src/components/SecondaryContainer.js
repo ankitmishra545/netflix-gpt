@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
-import usePopularMovies from "../hooks/usePopularMovies";
-import useTopRatedMovies from "../hooks/useTopRatedMovies";
-import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import useDispatchMovie from "../hooks/useDispatchMovie";
+import { addPopularMovies, addTopRatedMovies, addUpcomingMovies } from "../utils/movieSlice";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movie);
-  usePopularMovies();
-  useTopRatedMovies();
-  useUpcomingMovies();
+  useDispatchMovie("upcoming", addUpcomingMovies);
+  useDispatchMovie("top_rated", addTopRatedMovies);
+  useDispatchMovie("popular", addPopularMovies);
   return (
     <div className="w-full bg-black text-white">
       <div className="-mt-60 relative z-20">

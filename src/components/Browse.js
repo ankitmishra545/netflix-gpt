@@ -1,10 +1,11 @@
 import Header from "./Header";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import PrimaryContainer from "./PrimaryContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import useDispatchMovie from "../hooks/useDispatchMovie";
+import { addNowPlayingMovies } from "../utils/movieSlice";
 
 const Browse = () => {
-  useNowPlayingMovies();
+  useDispatchMovie("now_playing", addNowPlayingMovies);
   return (
     <div>
       <Header />
