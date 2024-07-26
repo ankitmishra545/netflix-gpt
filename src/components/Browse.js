@@ -2,15 +2,25 @@ import Header from "./Header";
 import PrimaryContainer from "./PrimaryContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import useDispatchMovie from "../hooks/useDispatchMovie";
-import { addNowPlayingMovies } from "../utils/movieSlice";
+import { addNowPlayingMovies } from "../utils/store/movieSlice";
+import { useSelector } from "react-redux";
+import GptSearchComponent from "./GptSearchComponent";
 
 const Browse = () => {
   useDispatchMovie("now_playing", addNowPlayingMovies);
+
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
   return (
     <div>
       <Header />
-      <PrimaryContainer />
-      <SecondaryContainer />
+      {showGPTSearch ? (
+        <GptSearchComponent />
+      ) : (
+        <>
+          <PrimaryContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };

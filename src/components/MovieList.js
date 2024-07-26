@@ -8,8 +8,8 @@ const MovieList = ({ title, movies }) => {
         <div className="flex items-center">
           {movies?.map((movie) => {
             return (
-              <div className="w-[160px] h-[250px]">
-                <MovieCard key={movie.id} posterId={movie.poster_path} />
+              <div key={movie.id} className="w-[160px] h-[250px]">
+                <MovieCard posterId={movie.poster_path} />
               </div>
             );
           })}
