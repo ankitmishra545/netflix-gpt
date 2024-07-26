@@ -7,6 +7,7 @@ const MovieList = ({ title, movies }) => {
       <div className="flex overflow-x-scroll">
         <div className="flex items-center">
           {movies?.map((movie) => {
+            if (!movie.poster_path) return;
             return (
               <div key={movie.id} className="w-[160px] h-[250px]">
                 <MovieCard posterId={movie.poster_path} />

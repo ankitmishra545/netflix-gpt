@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import GptSearchComponent from "./GptSearchComponent";
 
 const Browse = () => {
-  useDispatchMovie("now_playing", addNowPlayingMovies);
+  useDispatchMovie("now_playing", addNowPlayingMovies); // As browse is present while in account page so no network call created again
 
   const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
   return (

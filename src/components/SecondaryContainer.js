@@ -5,9 +5,12 @@ import { addPopularMovies, addTopRatedMovies, addUpcomingMovies } from "../utils
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movie);
-  useDispatchMovie("upcoming", addUpcomingMovies);
-  useDispatchMovie("top_rated", addTopRatedMovies);
-  useDispatchMovie("popular", addPopularMovies);
+  const upcomingAvailable = movies.upcomingMovies;
+  const topRatedAvailable = movies.upcomingMovies;
+  const popularAvailable = movies.upcomingMovies;
+  useDispatchMovie("upcoming", addUpcomingMovies, upcomingAvailable);
+  useDispatchMovie("top_rated", addTopRatedMovies, topRatedAvailable);
+  useDispatchMovie("popular", addPopularMovies, popularAvailable);
   return (
     <div className="w-full bg-black text-white">
       <div className="-mt-60 relative z-20">

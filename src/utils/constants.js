@@ -11,11 +11,16 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTQ3MWNmNjY4YzZjN2E4YTljOWMwNzY1YTkwNWRkZSIsIm5iZiI6MTcyMTgwMzY5OS4yMjQwOTgsInN1YiI6IjY2YTA5OGRhNTgyMDVmM2RkNjI2MzNlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aeHZMCpRxAK058SfMBufkE8ISrOLuiAWMmgoKA883ek",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
 export const MOVIE_POSTER_API = "https://image.tmdb.org/t/p/w200/";
 
 export const TMDB_MOVIE_API = "https://api.themoviedb.org/3/movie/";
+
+export const SEARCH_MOVIE_API = "https://api.themoviedb.org/3/search/movie?query=";
+
+export const SEARCH_MOVIE_API_FILTER = "&include_adult=false&language=en-US&page=1";
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
