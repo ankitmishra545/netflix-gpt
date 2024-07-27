@@ -24,3 +24,18 @@ export const SEARCH_MOVIE_API = "https://api.themoviedb.org/3/search/movie?query
 export const SEARCH_MOVIE_API_FILTER = "&include_adult=false&language=en-US&page=1";
 
 export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+
+// export const MOVIE_REVIEW_API = "{movie_id}/";
+// export const MOVIE_DETAILS_API = "{movie_id}";
+// export const MOVIE_CREDITS_API = "{movie_id}/""";
+// export const MOVIE_IMAGES_API = "{movie_id}/images";
+// export const MOVIE_RECOMMENDATIONS_API = "{movie_id}/";
+// export const MOVIE_SIMILAR_API = "{movie_id}/";
+// export const MOVIE_VIDEOS_API = "{movie_id}/";
+// export const MOVIE_RELEASE_DATES_API = "{movie_id}/";
+
+export const MOVIE_DETAILS_API_ARRAY = ["reviews", "", "credits", "recommendations", "similar", "videos"];
+
+export const PROFILE_LOGO = "https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg";
+
+export const TAB_BUTTONS = ["Cast", "Crew", "Production", "Countries", "Reviews", "Similar", "Recommendations"];

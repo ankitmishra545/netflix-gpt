@@ -10,7 +10,7 @@ const MovieList = ({ title, movies }) => {
             if (!movie.poster_path) return;
             return (
               <div key={movie.id} className="w-[160px] h-[250px]">
-                <MovieCard posterId={movie.poster_path} />
+                <MovieCard posterId={movie.poster_path} movieId={movie.id} />
               </div>
             );
           })}
